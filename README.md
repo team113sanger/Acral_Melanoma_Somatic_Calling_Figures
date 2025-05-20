@@ -35,10 +35,9 @@ project/
 ├── PDX_Tumor_samples/ # Comparative analyses
 ├── scripts/ # Analysis scripts
 │ ├── 01_Figure_2a.R # Oncoplot generation
-│ └── 02_Figure_4c.R # PDX-tumor comparison
+│ └── 02_Figure_4c.R # PDX-tumor comparisons
 └── Tumour/ # Patient tumor data
-└── all_samples/ # MAF and TMB files
-
+└── all_samples/ # MAF and TMB file
 ## Setup & Reproducibility
 
 ### R Environment
