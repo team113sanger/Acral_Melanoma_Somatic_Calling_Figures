@@ -23,20 +23,28 @@ This analysis pipeline processes somatic variant data from Patient-Derived Xenog
 project/
 ├── all_samples/ # Analysis of combined PDX+tumor samples
 ├── analysis/ # Additional analysis outputs
+
 ├── COSMIC/ # Cancer Gene Census data (v97)
 ├── data/ # Input data files
 │ └── METADATA_all_clinical_reviewed_dec_2024.tsv
+
 ├── environment_oncoplot.RData # Saved R environment
 ├── matched_samples/ # Matched PDX-tumor pairs analysis
+
 ├── patient_samples/ # Patient-only analyses
+
 ├── PDX/ # PDX sample data
 │ └── all_samples/ # MAF and TMB files
 ├── pdx_cell_samples/ # PDX-cell line comparisons
+
 ├── PDX_Tumor_samples/ # Comparative analyses
+
 ├── scripts/ # Analysis scripts
 │ ├── 01_Figure_2a.R # Oncoplot generation
 │ └── 02_Figure_4c.R # PDX-tumor comparisons
+
 └── Tumour/ # Patient tumor data
+
 └── all_samples/ # MAF and TMB file
 ## Setup & Reproducibility
 
