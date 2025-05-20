@@ -5,7 +5,7 @@ This analysis pipeline processes somatic variant data from Patient-Derived Xenog
 
 ## Analysis Scripts
 
-### `01_Figure_2a.R`
+# `01_Figure_2a.R`
 - **Purpose**: Generate oncoplots of mutational landscape
 - **Key Features**:
   - Processes MAF files from tumor samples
@@ -13,7 +13,7 @@ This analysis pipeline processes somatic variant data from Patient-Derived Xenog
   - Visualizes top mutated COSMIC v97 cancer genes
   - Annotates with clinical metadata
 
-### `02_Figure_4c.R`
+# `02_Figure_4c.R`
 - **Purpose**: Compare PDX and tumor samples mutation profiles
 - **Key Features**:
   - Co-barplots of mutation frequencies
