@@ -49,8 +49,9 @@ We used the `here` package for robust path handling:
 
 ## Data Sources
 
-1. **Somatic variant calling analysis**:  
-   Available at [Figshare](xxxx)
+1. **Somatic variant calling analysis**: 
+Somatic variant calls of single nucleotide variants (SNVs), multinucleotide variants (MNVs) and short insertions and deletions INDELs obtained for both Tumours and patient derived Xenografts.
+Available at [Figshare](xxxx)
    
 ## ✉️ Contact
 For questions about this repository or analyses:  
