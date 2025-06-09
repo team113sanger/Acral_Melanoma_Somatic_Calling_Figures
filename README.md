@@ -36,6 +36,8 @@ renv::restore()
 - R version: 4.4.1
 - Dependencies: See `renv.lock` in each analysis folder
 
+If you're interested in [reproducing the R environment using `renv`](https://rstudio.github.io/renv/reference/index.html) please follow the official documentation.
+
 ### File Path Management
 We used the `here` package for robust path handling:
 - Automatically detects project root
