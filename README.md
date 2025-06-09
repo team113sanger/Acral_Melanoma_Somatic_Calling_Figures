@@ -58,4 +58,4 @@ Available at [Figshare](xxxx)
 ## ✉️ Contact
 For questions about this repository or analyses:  
 **Annie Cristhine Moraes Sousa Squiavinato**  
-📧 as81@sanger.ac.uk
+📧 annie.sousa@ensino.inca.gov.br or as81@sanger.ac.uk
