@@ -1,61 +1,87 @@
-# Somatic Variant Calling Analysis for Acral Melanoma PDX Study - Figures
+# Somatic variant calling analysis — acral melanoma PDX study
 
-## Overview
-This analysis pipeline processes somatic variant data from Patient-Derived Xenograft (PDX) samples and their matched patient tumors, focusing on mutation patterns and variant type comparisons
+Scripts that generate the somatic-mutation figures of the acral melanoma
+patient-derived xenograft (PDX) study: the mutational landscape of the
+Brazilian cohort, and the comparison between patient tumours and their matched
+PDX models.
 
-## Analysis Scripts
+## Repository layout
 
-#### `01_Figure_2a.R`
-- **Purpose**: Generate oncoplots of mutational landscape
-- **Key Features**:
-  - Processes MAF files from tumor samples
-  - Filters to one sample per patient
-  - Visualizes top mutated COSMIC v97 cancer genes
-  - Annotates with clinical metadata
+```
+Somatic_variant_calling_analysis/
+├── LICENSE
+├── README.md
+└── analysis/
+    ├── renv.lock          package versions
+    ├── .Rprofile          activates renv
+    ├── data/              inputs 
+    ├── results/           outputs 
+    └── scripts/
+        ├── Figure_2A.R
+        └── Figure_3A_and_C.R
+```
 
-#### `02_Figure_4c.R`
-- **Purpose**: Compare PDX and tumor samples mutation profiles
-- **Key Features**:
-  - Co-barplots of mutation frequencies
-  - Variant type comparisons
+## Running the analyses
 
-## Setup & Reproducibility
+All scripts expect to be run from `analysis/`, the directory that holds
+`renv.lock`. They use relative paths, so nothing needs editing.
 
-### R Environment
-We used `renv` for dependency management. To reproduce our environment:
+```bash
+git clone https://github.com/<user>/Somatic_variant_calling_analysis.git
+cd Somatic_variant_calling_analysis/analysis
+
+# place the input files in analysis/data/ — see Data availability below
+
+R -e 'renv::restore()'          # once, installs the recorded package versions
+Rscript scripts/Figure_2A.R
+Rscript scripts/Figure_3A_and_C.R
+```
+
+If a script stops with `'data/' not found`, the working directory is wrong:
+`cd` into `analysis/` and run it again.
+
+## Scripts
+
+### `Figure_2A.R`
+
+Oncoplot of the Brazilian acral melanoma cohort, one tumour per patient,
+labelled with the AM identifier.
+
+Produces two figures: the top 20 COSMIC Cancer Gene Census genes, and a
+pre-specified 20-gene list restricted to genes mutated in at least two samples.
+The top bar shows mutations per Mb.
+
+### `Figure_3A_C.R`
+
+Patient tumour versus matched PDX at passage 1.
+
+On its first run the script writes `data/mapk_pathway_genes.txt` from MSigDB and
+reads it from disk thereafter, so the gene set is versioned with the analysis.
+
+## Environment
+
+R 4.4.1. Package versions are recorded in `analysis/renv.lock` and restored with
+[`renv`](https://rstudio.github.io/renv/):
 
 ```R
-# Install renv if needed
 if (!require("renv")) install.packages("renv")
-
-# Restore the project environment
 renv::restore()
 ```
 
-**Environment Details:**
-- R version: 4.4.1
-- Dependencies: See `renv.lock` in each analysis folder
+Opening R inside `analysis/` activates the project library automatically through
+`.Rprofile`. Do not set `.libPaths()` or `RENV_PROJECT` manually — either will
+override the recorded environment.
 
-If you're interested in [reproducing the R environment using `renv`](https://rstudio.github.io/renv/reference/index.html) please follow the official documentation.
+## Data availability
 
-### File Path Management
-We used the `here` package for robust path handling:
-- Automatically detects project root
-- Creates platform-independent paths
-- Seamless RStudio integration
+Download them into `analysis/data/` before running. Each script lists the files
+it needs in its header and stops with a named error if one is missing.
 
-## Additional Notes
-- All scripts are contained in the `scripts/` directory
-- Each analysis folder contains its specific dependencies
+The COSMIC Cancer Gene Census (v97) must be obtained separately from
+<https://cancer.sanger.ac.uk/census>; it requires registration and cannot be
+redistributed.
 
+## Contact
 
-## Data Sources
-
-1. **Somatic variant calling analysis**: 
-Somatic variant calls of single nucleotide variants (SNVs), multinucleotide variants (MNVs) and short insertions and deletions INDELs obtained for both Tumours and patient derived Xenografts.
-Available at [Figshare](DOI:10.6084/m9.figshare.29114711)
-   
-## ✉️ Contact
-For questions about this repository or analyses:  
-**Annie Cristhine Moraes Sousa Squiavinato**  
-📧 annie.sousa@ensino.inca.gov.br or as81@sanger.ac.uk
+Annie Cristhine Moraes Sousa-Squiavinato
+annie.sousa@ensino.inca.gov.br · as81@sanger.ac.uk
