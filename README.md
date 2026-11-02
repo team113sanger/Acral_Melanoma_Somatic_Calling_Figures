@@ -37,9 +37,6 @@ Rscript scripts/Figure_2A.R
 Rscript scripts/Figure_3A_and_C.R
 ```
 
-If a script stops with `'data/' not found`, the working directory is wrong:
-`cd` into `analysis/` and run it again.
-
 ## Scripts
 
 ### `Figure_2A.R`
